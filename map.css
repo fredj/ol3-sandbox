@@ -1,0 +1,43 @@
+html, body, .content, .map {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+.content {
+    position: absolute;
+    right: 0;
+    transition: all 0.3s ease;
+}
+
+body.drawer-open .content {
+    width: 30%;
+}
+
+.drawer {
+    height: 100%;
+    width: 70%;
+    overflow-y: scroll;
+}
+
+.header, .footer {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 8px 2px #aaa;
+}
+
+.footer {
+    margin-bottom: 0;
+}
+
+.map {
+    background-image: url(wavegrid.png);
+}
+
+.drawer {
+    position: absolute
+}
+
