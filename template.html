@@ -3,7 +3,7 @@
   <head>
     <title>ol3 mobile app</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <link href="bootstrap.css" rel="stylesheet" media="screen">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen">
     <link href="map.css" rel="stylesheet" media="screen">
@@ -37,10 +37,10 @@
          <li class="list-group-item">Porta ac consectetur ac</li>
       </ul>
     </div>
-    <div class="content">
+    <div class="content" id="content">
       <div class="header navbar navbar-fixed-top">
         <form class="navbar-form pull-left">
-          <button class="btn btn-small" id="open-drawer">boo !</button>
+          <button class="btn btn-small" id="toggle-drawer">boo !</button>
           <input class="input-small" type="search" placeholder="Search" style="width: 200px;">
         </form>
 
@@ -99,11 +99,21 @@
     <script src="http://ol3js.org/ol3/master/build/ol.js"></script>
     <script src="map.js"></script>
     <script>
-      $('#open-drawer').click(function(e) {
+      $('#toggle-drawer').click(function(e) {
         e.preventDefault()
         e.stopPropagation()
         $('body').toggleClass('drawer-open');
       });
+
+      $('#content').click(function(e) {
+        var body = $('body');
+        if (body.hasClass('drawer-open')) {
+          e.preventDefault();
+          e.stopPropagation();
+          body.removeClass('drawer-open');
+        }
+      });
+
     </script>
   </body>
 </html>
