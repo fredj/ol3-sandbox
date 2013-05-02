@@ -1,8 +1,3 @@
-var view = new ol.View2D({
-  center: [0, 0],
-  zoom: 2
-});
-
 var map = new ol.Map({
   controls: ol.control.defaults({}, [
     new ol.control.Attribution({
@@ -11,13 +6,19 @@ var map = new ol.Map({
   ]),
   layers: [
     new ol.layer.TileLayer({
-      source: new ol.source.BingMaps({
-        key: 'AlQLZ0-5yk301_ESrmNLma3LYxEKNSg7w-e_knuRfyYFtld-UFvXVs38NOulku3Q',
-        style: 'Road'
+      source: new ol.source.Stamen({
+        layer: 'watercolor'
+      })
+    }),
+    new ol.layer.TileLayer({
+      source: new ol.source.Stamen({
+        layer: 'terrain-labels'
       })
     })
   ],
-  renderers: ol.RendererHints.createFromQueryData(),
   target: 'map',
-  view: view
+  view: new ol.View2D({
+    center: [0, 0],
+    zoom: 2
+  })
 });

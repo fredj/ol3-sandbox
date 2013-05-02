@@ -26,7 +26,7 @@ body.drawer-open .content {
 .header, .footer {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 8px 2px #aaa;
+    /* box-shadow: 0 0 8px 2px #aaa; */
 }
 
 .footer {
