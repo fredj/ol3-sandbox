@@ -1,9 +1,9 @@
 var map = new ol.Map({
-  controls: ol.control.defaults({}, [
-    new ol.control.Attribution({
+  controls: ol.control.defaults({
+    attributionOptions: {
       target: document.getElementById('ol-attribution')
-    })
-  ]),
+    }
+  }),
   layers: [
     new ol.layer.TileLayer({
       source: new ol.source.Stamen({
