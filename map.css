@@ -10,8 +10,7 @@ body {
 
 .content {
     position: absolute;
-    right: 0;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
 body.drawer-open .content {
@@ -19,6 +18,7 @@ body.drawer-open .content {
 }
 
 .drawer {
+    /* FIXME: max-width */
     height: 100%;
     width: 70%;
     overflow-y: scroll;
