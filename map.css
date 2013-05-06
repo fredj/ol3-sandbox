@@ -39,10 +39,6 @@ body.drawer-open .content {
     /* box-shadow: 0 0 8px 2px #aaa; */
 }
 
-.footer {
-    margin-bottom: 0;
-}
-
 .map {
     background-image: url(wavegrid.png);
 }
