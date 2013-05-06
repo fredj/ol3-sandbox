@@ -47,3 +47,7 @@ body.drawer-open .content {
     position: absolute
 }
 
+.ol-scale-line-inner {
+    border-bottom: 1px solid black;
+    text-align: center;
+}

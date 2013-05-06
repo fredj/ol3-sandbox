@@ -43,34 +43,20 @@
           <button class="btn" id="toggle-drawer">options</button>
           <input type="search" placeholder="Search" style="width: 200px;">
         </form>
-
-        <!-- <ul class="nav pull-right"> -->
-        <!--   <li><a href="#">link</a></li> -->
-        <!--   <li class="dropdown"> -->
-        <!--     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a> -->
-        <!--     <ul class="dropdown-menu pull-right"> -->
-        <!--       <li><a href="#">Action</a></li> -->
-        <!--       <li><a href="#">Another action</a></li> -->
-        <!--       <li><a href="#">Something else here</a></li> -->
-        <!--       <li class="divider"></li> -->
-        <!--       <li><a href="#">Separated link</a></li> -->
-        <!--     </ul> -->
-        <!--   </li> -->
-        <!-- </ul> -->
+        <form class="navbar-form pull-right">
+          <select>
+            <option>Color map</option>
+            <option>Grayscale map</option>
+            <option>Satellite</option>
+          </select>
+        </form>
       </div>
 
       <div class="map" id="map"></div>
 
       <div class="footer navbar navbar-fixed-bottom">
         <ul class="nav pull-left">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Background <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#"><i class="icon-ko"></i> Color map</a></li>
-              <li><a href="#"><i class="icon-ko"></i> Grayscale map</a></li>
-              <li><a href="#"><i class="icon-ok"></i> Satellite</a></li>
-            </ul>
-          </li>
+          <li id="ol-scale-line"></li>
         </ul>
         <ul class="nav pull-right">
           <li><a data-toggle="modal" href="#attribution">Attribution</a></li>
