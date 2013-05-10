@@ -9,7 +9,9 @@
     <link href="app.css" rel="stylesheet" media="screen">
   </head>
   <body>
-    <div class="drawer">
+    <div class="banner"></div>
+
+    <div class="side-panel">
       <ul class="list-group">
          <li class="list-group-item">Cras justo odio</li>
          <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -37,10 +39,11 @@
          <li class="list-group-item">Porta ac consectetur ac</li>
       </ul>
     </div>
+
     <div class="content" id="content">
       <div class="header navbar navbar-fixed-top">
         <form class="navbar-form pull-left">
-          <button class="btn" id="toggle-drawer">options</button>
+          <button class="btn" id="toggle-side-panel">options</button>
           <input type="search" placeholder="Search" style="width: 200px;">
         </form>
         <form class="navbar-form pull-right">
@@ -85,18 +88,18 @@
     <script src="http://ol3js.org/ol3/master/build/ol.js"></script>
     <script src="map.js"></script>
     <script>
-      $('#toggle-drawer').click(function(e) {
+      $('#toggle-side-panel').click(function(e) {
         e.preventDefault()
         e.stopPropagation()
-        $('body').toggleClass('drawer-open');
+        $('body').toggleClass('side-panel-open');
       });
 
       $('#content').click(function(e) {
         var body = $('body');
-        if (body.hasClass('drawer-open')) {
+        if (body.hasClass('side-panel-open')) {
           e.preventDefault();
           e.stopPropagation();
-          body.removeClass('drawer-open');
+          body.removeClass('side-panel-open');
         }
       });
 
