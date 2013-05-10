@@ -19,6 +19,7 @@ body.drawer-open .content {
 
 .drawer {
     /* FIXME: max-width */
+    position: absolute;
     height: 100%;
     width: 70%;
     overflow-y: scroll;
@@ -41,10 +42,6 @@ body.drawer-open .content {
 
 .map {
     background-image: url(wavegrid.png);
-}
-
-.drawer {
-    position: absolute
 }
 
 .ol-scale-line-inner {
