@@ -1,6 +1,5 @@
-html, body, .content, .map {
+html, body, .side-panel, .content, .map {
     height: 100%;
-    width: 100%;
 }
 
 body {
@@ -9,6 +8,7 @@ body {
 }
 
 .content {
+    width: 100%;
     position: absolute;
     transition: all 0.3s ease-in-out;
 }
@@ -20,7 +20,6 @@ body.side-panel-open .content {
 .side-panel {
     /* FIXME: max-width */
     position: absolute;
-    height: 100%;
     width: 70%;
     overflow-y: scroll;
     box-shadow: inset -5px 0 20px black;
