@@ -1,10 +1,9 @@
-html, body, .side-panel, .content, .map {
+html, body {
     height: 100%;
 }
 
 body {
     font-family: "Open Sans", sans-serif;
-    /* overflow: hidden; */
 }
 
 .banner {
@@ -12,43 +11,76 @@ body {
     background-color: #b94a48;
 }
 
-.content {
-    width: 100%;
+.content, .left {
     position: absolute;
+    top: 130px;
+    bottom: 0;
+}
+
+.content {
+    left: 0;
+    right: 0;
     transition: all 0.3s ease-in-out;
 }
 
-body.side-panel-open .content {
-    left: 70%;
+body.left-open .content {
+    left: 300px;
 }
 
-.side-panel {
-    /* FIXME: max-width */
-    position: absolute;
-    width: 70%;
-    overflow-y: scroll;
-    box-shadow: inset -5px 0 20px black;
-    background-color: #545454;
+.left {
+    width: 300px;
 }
 
-.side-panel .list-group {
-    background-color: transparent;
-    color: #b3b3b3;
+.left .tab-content {
+    height: 100%;
+    padding: 15px;
+    overflow-y: auto;
 }
 
-.side-panel .list-group-item {
-    border: 1px solid #4c4c4c;
-}
-
-.map {
-    background-image: url(wavegrid.png);
-}
-.map .navbar {
+.content .navbar {
     margin-bottom: 0;
 }
 
+.map {
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    width: 100%;
+    background-image: url(wavegrid.png);
+}
 
-.ol-scale-line-inner {
-    border-bottom: 1px solid black;
-    text-align: center;
+.map .btn {
+    position: absolute;
+    z-index: 1000;
+}
+.btn.zoom-in {
+    left: 15px;
+    top: 15px;
+}
+
+.btn.zoom-out {
+    left: 15px;
+    top: 50px;
+}
+
+.btn.location {
+    right: 15px;
+    top: 15px;
+}
+
+
+
+.navbar-absolute-top, .navbar-absolute-bottom {
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.navbar-absolute-top {
+    top: 0;
+}
+
+.navbar-absolute-bottom {
+    bottom: 0;
+    margin-bottom: 0;
 }

@@ -5,10 +5,10 @@ var map = new ol.Map({
       target: document.getElementById('ol-attribution')
     }
   }, [
-    new ol.control.ScaleLine({
-      target: document.getElementById('ol-scale-line'),
-      units: ol.control.ScaleLineUnits.METRIC
-    })
+    // new ol.control.ScaleLine({
+    //   target: document.getElementById('ol-scale-line'),
+    //   units: ol.control.ScaleLineUnits.METRIC
+    // })
   ]),
   layers: [
     new ol.layer.TileLayer({
