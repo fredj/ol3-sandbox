@@ -41,29 +41,31 @@
     </div>
 
     <div class="content" id="content">
-      <div class="header navbar navbar-fixed-top">
-        <form class="navbar-form pull-left">
-          <button class="btn" id="toggle-side-panel"><i class="icon-reorder"></i></button>
-          <input type="search" placeholder="Search" style="width: 200px;">
-        </form>
-        <form class="navbar-form pull-right">
-          <select>
-            <option>Color map</option>
-            <option>Grayscale map</option>
-            <option>Satellite</option>
-          </select>
-        </form>
-      </div>
+      <div class="map" id="map">
+        <!-- top toolbar -->
+        <div class="navbar">
+          <ul class="nav navbar-nav">
+            <li><button class="btn navbar-btn" id="toggle-side-panel"><i class="icon-reorder"></i></button></li>
+            <li><a href="#">this</a></li>
+            <li><a href="#">is</a></li>
+            <li><a href="#">the</a></li>
+            <li><a href="#">top</a></li>
+            <li><a href="#">toolbar</a></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li><button class="btn navbar-btn">Sign in</button></li>
+          </ul>
+        </div>
 
-      <div class="map" id="map"></div>
-
-      <div class="footer navbar navbar-fixed-bottom">
-        <ul class="nav pull-left">
-          <li id="ol-scale-line"></li>
-        </ul>
-        <ul class="nav pull-right">
-          <li><a data-toggle="modal" href="#attribution">Attribution</a></li>
-        </ul>
+        <!-- bottom toolbar -->
+        <div class="navbar">
+          <ul class="nav navbar-nav">
+            <li id="ol-scale-line"></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li><a data-toggle="modal" href="#attribution">Attribution</a></li>
+          </ul>
+        </div>
       </div>
 
       <div id="attribution" class="modal fade">

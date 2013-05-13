@@ -4,7 +4,12 @@ html, body, .side-panel, .content, .map {
 
 body {
     font-family: "Open Sans", sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
+}
+
+.banner {
+    height: 130px;
+    background-color: #b94a48;
 }
 
 .content {
@@ -25,23 +30,23 @@ body.side-panel-open .content {
     box-shadow: inset -5px 0 20px black;
     background-color: #545454;
 }
+
 .side-panel .list-group {
     background-color: transparent;
     color: #b3b3b3;
 }
+
 .side-panel .list-group-item {
     border: 1px solid #4c4c4c;
-}
-
-.header, .footer {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.8);
-    /* box-shadow: 0 0 8px 2px #aaa; */
 }
 
 .map {
     background-image: url(wavegrid.png);
 }
+.map .navbar {
+    margin-bottom: 0;
+}
+
 
 .ol-scale-line-inner {
     border-bottom: 1px solid black;
