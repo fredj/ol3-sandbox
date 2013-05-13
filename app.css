@@ -7,8 +7,13 @@ body {
 }
 
 .banner {
+    position: relative;
     height: 130px;
     background-color: #b94a48;
+}
+
+.banner .navbar {
+    background-color: transparent;
 }
 
 .content, .left {
@@ -30,9 +35,12 @@ body.left-open .content {
 .left {
     width: 300px;
 }
-
+/*
+.left .nav-tabs > li {
+    width: 33.33333333333333%;
+}
+*/
 .left .tab-content {
-    height: 100%;
     padding: 15px;
     overflow-y: auto;
 }
@@ -67,8 +75,6 @@ body.left-open .content {
     right: 15px;
     top: 15px;
 }
-
-
 
 .navbar-absolute-top, .navbar-absolute-bottom {
     position: absolute;

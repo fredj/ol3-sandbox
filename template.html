@@ -10,7 +10,19 @@
     <link href="app.css" rel="stylesheet" media="screen">
   </head>
   <body class="left-open">
-    <div class="banner"></div>
+    <div class="banner">
+      <div class="navbar navbar-absolute-bottom">
+        <form class="navbar-form pull-right">
+          <div class="btn-group"  data-toggle="buttons-radio">
+            <button type="button" class="btn btn-default navbar-btn">fr</button>
+            <button type="button" class="btn btn-default navbar-btn">de</button>
+            <button type="button" class="btn btn-default navbar-btn">it</button>
+            <button type="button" class="btn btn-default navbar-btn active">en</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <div class="left">
       <ul class="nav nav-tabs">
       <!-- <ul class="nav nav-pills nav-stacked"> -->
@@ -76,7 +88,7 @@
               <label class="btn btn-primary"><input type="radio" name="size">portrait</label>
               <label class="btn btn-primary active"><input type="radio" name="size">landscape</label>
             </div>
-            
+
             <div style="margin-top: 20px;"> <!-- FIXME -->
               <button type="submit" class="btn btn-default">Print</button>
             </div>
@@ -122,7 +134,8 @@
           <li><a href="#">toolbar</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <li><button class="btn navbar-btn" data-toggle="modal" data-target="#attribution">Attribution</button></li>
+          <!-- <li><button class="btn navbar-btn" data-toggle="modal" data-target="#attribution">Attribution</button></li> -->
+          <li><button class="btn navbar-btn" data-toggle="modal" data-target="#attribution"><i class="icon-question"></i></button></li>
         </ul>
       </div>
     </div>
