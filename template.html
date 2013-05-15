@@ -189,7 +189,7 @@
     <div class="content">
       <div class="navbar navbar-absolute-top">
         <div class="nav navbar-nav">
-          <button class="btn navbar-btn" id="toggle-left"><i class="icon-reorder"></i></button>
+          <button class="btn navbar-btn active" data-toggle="button" id="toggle-left"><i class="icon-reorder"></i></button>
         </div>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <i class="icon-ellipsis-vertical"></i>
@@ -203,7 +203,7 @@
             <li><a href="#">small</a></li>
           </ul>
           <div class="nav navbar-nav pull-right">
-            <button class="btn navbar-btn" id="toggle-globe"><i class="icon-globe"></i></button>
+            <button class="btn navbar-btn" data-toggle="button" id="toggle-globe"><i class="icon-globe"></i></button>
           </div>
         </div>
       </div>
@@ -260,14 +260,10 @@
     <script src="map.js"></script>
     <script>
       $('#toggle-left').click(function(e) {
-        e.preventDefault()
-        e.stopPropagation()
         $('body').toggleClass('left-open');
         //map.updateSize();
       });
       $('#toggle-globe').click(function(e) {
-        e.preventDefault()
-        e.stopPropagation()
         $('body').toggleClass('globe-open');
       });
     </script>
