@@ -25,6 +25,7 @@ body {
 .content {
     left: 0;
     right: 0;
+    overflow: hidden;
     transition: all 0.3s ease-in-out;
 }
 
