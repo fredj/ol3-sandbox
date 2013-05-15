@@ -261,11 +261,15 @@
     <script>
       $('#toggle-left').click(function(e) {
         $('body').toggleClass('left-open');
-        //map.updateSize();
       });
       $('#toggle-globe').click(function(e) {
         $('body').toggleClass('globe-open');
       });
+
+      $('.content, .map, .globe').on('transitionend webkitTransitionEnd', function() {
+        map.updateSize();
+      });
+
     </script>
   </body>
 </html>
