@@ -75,21 +75,17 @@ body.left-open .content {
     background-image: url(wavegrid.png);
 }
 
-.map .btn {
+.map .map-control {
     position: absolute;
     z-index: 900;
 }
-.btn.zoom-in {
+
+.ol-zoom {
     left: 15px;
     top: 15px;
 }
 
-.btn.zoom-out {
-    left: 15px;
-    top: 50px;
-}
-
-.btn.location {
+.ol-location {
     right: 15px;
     top: 15px;
 }
