@@ -66,12 +66,37 @@ body.left-open .content {
     margin-bottom: 0;
 }
 
-.map {
+.map, .globe {
     position: absolute;
     top: 50px;
     bottom: 50px;
+    transition: width 0.3s ease-in-out;
+}
+
+.map {
+    left: 0;
     width: 100%;
     background-image: url(wavegrid.png);
+}
+
+.globe {
+    background-color: #b94a48;
+    right: 0;
+    width: 0;
+}
+
+.globe i {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    color: white;
+    font-size: 200px;
+    text-shadow: rgb(34, 34, 34) 2px 2px 3px;
+}
+
+body.globe-open .map, body.globe-open .globe {
+    width: 50%;
 }
 
 .map .map-control {
