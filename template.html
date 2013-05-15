@@ -188,27 +188,33 @@
     </div>
     <div class="content">
       <div class="navbar navbar-absolute-top">
-        <ul class="nav navbar-nav">
-          <li><button class="btn navbar-btn" id="toggle-left"><i class="icon-reorder"></i></button></li>
-          <li><a href="#">this</a></li>
-          <li><a href="#">is</a></li>
-          <li><a href="#">the</a></li>
-          <li><a href="#">top</a></li>
-          <li><a href="#">toolbar</a></li>
-        </ul>
-        <div class="btn-group">
-          <button type="button" class="btn btn-default navbar-btn"><i class="icon-smile"></i></button>
-          <button type="button" class="btn btn-default navbar-btn"><i class="icon-meh"></i></button>
-          <button type="button" class="btn btn-default navbar-btn"><i class="icon-frown"></i></button>
+        <div class="nav navbar-nav">
+          <button class="btn navbar-btn" id="toggle-left"><i class="icon-reorder"></i></button>
+        </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <i class="icon-ellipsis-vertical"></i>
+        </button>
+
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">hidden</a></li>
+            <li><a href="#">if</a></li>
+            <li><a href="#">too</a></li>
+            <li><a href="#">small</a></li>
+          </ul>
         </div>
 
-        <form class="navbar-form pull-left">
-          <input type="text" style="width: 200px;">
-        </form>
 
-        <ul class="nav navbar-nav pull-right">
-          <li><button class="btn navbar-btn">Sign in</button></li>
-        </ul>
+        <!-- <div class="btn-group"> -->
+        <!--   <button type="button" class="btn btn-default navbar-btn"><i class="icon-smile"></i></button> -->
+        <!--   <button type="button" class="btn btn-default navbar-btn"><i class="icon-meh"></i></button> -->
+        <!--   <button type="button" class="btn btn-default navbar-btn"><i class="icon-frown"></i></button> -->
+        <!-- </div> -->
+
+        <!-- <form class="navbar-form pull-left"> -->
+        <!--   <input type="text" style="width: 200px;"> -->
+        <!-- </form> -->
+
       </div>
       <div class="map" id="map">
         <div class="btn-group-vertical map-control ol-zoom">
@@ -217,7 +223,7 @@
         </div>
         <button class="btn btn-primary map-control ol-location"><i class="icon-location-arrow"></i></button>
       </div>
-      <div class="navbar navbar-absolute-bottom">
+      <div class="navbar navbar-absolute-bottom hidden-sm">
         <ul class="nav navbar-nav">
           <li><a href="#">this</a></li>
           <li><a href="#">is</a></li>
@@ -249,6 +255,7 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="lib/bootstrap-button.js"></script>
+    <script src="lib/bootstrap-collapse.js"></script>
     <script src="lib/bootstrap-dropdown.js"></script>
     <script src="lib/bootstrap-modal.js"></script>
     <script src="lib/bootstrap-tab.js"></script>

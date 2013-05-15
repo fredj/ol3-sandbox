@@ -62,7 +62,6 @@ body.left-open .content {
     font-size: 80%;
 }
 
-
 .content .navbar {
     margin-bottom: 0;
 }
@@ -94,6 +93,8 @@ body.left-open .content {
     position: absolute;
     right: 0;
     left: 0;
+    z-index: 1030;
+    border-radius: 0;
 }
 
 .navbar-absolute-top {
