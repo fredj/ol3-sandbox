@@ -217,7 +217,9 @@
             <li><a href="#">small</a></li>
           </ul>
           <form class="navbar-form pull-left">
-            <input class="animate-all" type="search" placeholder="Search" app-search app-search-map="map">
+            <input class="animate-all" type="search" placeholder="Search"
+                   app-search
+                   app-search-result="searchResult">
           </form>
           <div class="nav navbar-nav pull-right">
             <button class="btn navbar-btn" data-toggle="button" id="toggle-globe"><i class="icon-globe"></i></button>
@@ -225,7 +227,10 @@
         </div>
       </div>
 
-      <div class="map animate-all" app-map="map">
+      <div class="map animate-all"
+           app-map="map"
+           app-map-view-center="searchResult|transformCoord:'EPSG:4326':'EPSG:3857'">
+
         <div class="btn-group-vertical map-control ol-zoom">
           <button class="btn btn-primary"><i class="icon-plus"></i></button>
           <button class="btn btn-primary"><i class="icon-minus"></i></button>
