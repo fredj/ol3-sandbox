@@ -10,6 +10,29 @@
      link: function(scope, element, attrs) {
        var map = $parse(attrs.appMap)(scope);
        map.setTarget(element[0]);
+
+       if (attrs.appMapViewCenter) {
+         var view = map.getView();
+
+         // Binding map -> scope
+         //
+         // Note: we don't set the "map -> scope" binding if the expression is
+         // not assignable.
+         var setter = $parse(attrs.appMapViewCenter).assign;
+         if (setter) {
+           view.on('center_changed', function() {
+             var center = view.getCenter();
+             setter(scope, center);
+           });
+         }
+
+         // Binding scope -> map
+         scope.$watch(attrs.appMapViewCenter, function(value) {
+           if (value) {
+             view.setCenter(value);
+           }
+         }, true);
+       }
      }
    };
   }]);
