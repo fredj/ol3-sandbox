@@ -140,7 +140,9 @@ body.globe-open .map, body.globe-open .globe {
 .tt-dropdown-menu {
     width: 100%;
 }
-
+.tt-hint {
+    color: #777 !important;
+}
 .tt-dropdown-menu {
     background-color: #fff;
     margin-top: 5px;
