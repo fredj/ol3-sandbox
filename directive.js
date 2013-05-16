@@ -45,9 +45,13 @@
       restrict: 'A',
       link: function(scope, element, attrs) {
 
-       var map = $parse(attrs.appSearchMap)(scope);
+       var searchResultExpr = attrs.appSearchResult;
+       if (!searchResultExpr) {
+         throw new Error('No search-result attr for app-search');
+       }
 
-       element.typeahead([{
+       // Attach the typeahead to the element.
+       var typeahead = element.typeahead([{
          name: 'geonames',
          header: '<strong>geonames:</strong>',
          valueKey: 'name',
@@ -78,14 +82,16 @@
              });
            }
          }
-       }]).on('typeahead:selected', function(event, datum) {
-         // FIXME: the selected lon/lat should be placed on the scope,
-         // and data binding should be used to change the map view when
-         // lon and lat change on the scope.
+       }]);
+
+       // Detect selection and set the selected lon,lat on the scope.
+       var searchResultSetter = $parse(searchResultExpr).assign;
+       typeahead.on('typeahead:selected', function(event, datum) {
          if (datum.lng && datum.lat) {
            // from geonames
-           var center = ol.projection.transform([datum.lng, datum.lat], 'EPSG:4326', 'EPSG:3857');
-           map.getView().setCenter(center);
+           scope.$apply(function() {
+             searchResultSetter(scope, [datum.lng, datum.lat]);
+           });
          } else {
            // from swisssearch
            //FIXME
