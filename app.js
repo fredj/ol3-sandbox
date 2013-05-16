@@ -1,4 +1,4 @@
 (function() {
-  angular.module('app', ['app.controller', 'app.directive']);
+  angular.module('app', ['app.controller', 'app.directive', 'app.filter']);
 })();
 
