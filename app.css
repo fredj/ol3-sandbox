@@ -156,6 +156,28 @@ body.globe-open .map, body.globe-open .globe {
     background-color: #eee;
 }
 
+
+.nav-bottom-border {
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-bottom-border > li {
+    float: left;
+}
+
+.nav-bottom-border > li > a, .nav-bottom-border > li > a:hover, .nav-bottom-border > li > a:focus {
+    background-color: transparent;
+    color: #777;
+}
+.nav-bottom-border > li > a:hover, .nav-bottom-border > li > a:focus {
+    color: #333;
+}
+
+.nav-bottom-border > li.active > a, .nav-bottom-border > li.active > a:hover, .nav-bottom-border > li.active > a:focus {
+    border-bottom: 3px solid #357ebd;
+    margin-bottom: -1px;
+    color: #333;
+}
 @media screen and (max-width: 768px) {
     /* hide banner */
     .banner {
