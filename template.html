@@ -17,9 +17,9 @@
     <script src="lib/bootstrap-modal.js"></script>
     <script src="lib/bootstrap-tab.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="controller.js"></script>
+    <script src="directive.js"></script>
     <script src="app.js"></script>
-    <script src="map.js"></script>
-    <script src="geosearch.js"></script>
   </head>
   <body class="left-open" ng-controller="Controller">
     <div class="banner">
@@ -216,7 +216,7 @@
             <li><a href="#">small</a></li>
           </ul>
           <form class="navbar-form pull-left">
-            <input class="animate-all" type="search" placeholder="Search" ol-search ol-search-map="map">
+            <input class="animate-all" type="search" placeholder="Search" app-search app-search-map="map">
           </form>
           <div class="nav navbar-nav pull-right">
             <button class="btn navbar-btn" data-toggle="button" id="toggle-globe"><i class="icon-globe"></i></button>
@@ -224,7 +224,7 @@
         </div>
       </div>
 
-      <div class="map animate-all" ol-map="map">
+      <div class="map animate-all" app-map="map">
         <div class="btn-group-vertical map-control ol-zoom">
           <button class="btn btn-primary"><i class="icon-plus"></i></button>
           <button class="btn btn-primary"><i class="icon-minus"></i></button>
