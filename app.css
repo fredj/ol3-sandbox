@@ -26,7 +26,6 @@ body {
     left: 0;
     right: 0;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
 }
 
 body.left-open .content {
@@ -71,7 +70,6 @@ body.left-open .content {
     position: absolute;
     top: 50px;
     bottom: 50px;
-    transition: width 0.3s ease-in-out;
 }
 
 .map {
@@ -130,4 +128,29 @@ body.globe-open .map, body.globe-open .globe {
 .navbar-absolute-bottom {
     bottom: 0;
     margin-bottom: 0;
+}
+
+.animate-all {
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    /* hide banner */
+    .banner {
+        display: none;
+    }
+    .content, .left {
+        top: 0;
+    }
+
+    /* hide bottom toolbar */
+    .content .navbar-absolute-bottom  {
+        display: none;
+    }
+    .map {
+        bottom: 0;
+    }
+
 }
