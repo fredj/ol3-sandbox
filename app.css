@@ -134,7 +134,25 @@ body.globe-open .map, body.globe-open .globe {
     transition: all 0.3s ease-in-out;
 }
 
+#geosearch  {
+    width: 300px;
+}
+.tt-dropdown-menu {
+    width: 100%;
+}
 
+.tt-dropdown-menu {
+    background-color: #fff;
+    margin-top: 5px;
+    padding: 4px 12px;
+    font-size: 90%;
+}
+.tt-suggestion {
+    padding: 4px 12px;
+}
+.tt-is-under-cursor {
+    background-color: #eee;
+}
 
 @media screen and (max-width: 768px) {
     /* hide banner */
