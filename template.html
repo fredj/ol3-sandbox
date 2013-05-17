@@ -222,6 +222,22 @@
                    app-search-result="searchResult">
           </form>
           <div class="nav navbar-nav pull-right">
+            <!-- <button class="btn navbar-btn"><i class="icon-link"></i></button> -->
+            <div class="btn-group">
+              <button class="btn navbar-btn dropdown-toggle" data-toggle="dropdown"><i class="icon-link"></i></button>
+              <ul class="dropdown-menu pull-right">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Action</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-submenu pull-left"><a href="#">Share this map</a>
+                  <ul  class="dropdown-menu">
+                    <li><a href="#"><i class="icon-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="icon-facebook-sign"></i> facebook</a></li>
+                    <li><a href="#"><i class="icon-pinterest"></i> Pinterest</a></li>
+                    <li><a href="#"><i class="icon-google-plus-sign"></i> Google+</a></li>
+                  </ul>
+              </ul>
+            </div>
             <button class="btn navbar-btn" data-toggle="button" ng-click="globeIsOpen = !globeIsOpen"><i class="icon-globe"></i></button>
           </div>
         </div>
