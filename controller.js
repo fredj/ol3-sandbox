@@ -4,6 +4,9 @@
   controllerModule.controller('Controller',
       ['$scope', function($scope) {
 
+    $scope.leftPanelIsOpen = true;
+    $scope.globeIsOpen = false;
+
     var map = new ol.Map({
       controls: ol.control.defaults({
         attributionOptions: {

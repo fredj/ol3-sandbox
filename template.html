@@ -18,7 +18,8 @@
     <script src="filter.js"></script>
     <script src="app.js"></script>
   </head>
-  <body class="left-open" ng-controller="Controller">
+  <body ng-controller="Controller"
+        ng-class="{'left-open': leftPanelIsOpen,'globe-open': globeIsOpen}">
     <div class="banner">
       <div class="navbar navbar-absolute-top">
         <form class="navbar-form pull-right">
@@ -198,7 +199,9 @@
     <div class="content animate-all">
       <div class="navbar navbar-absolute-top">
         <div class="nav navbar-nav pull-left">
-          <button class="btn navbar-btn active" data-toggle="button" id="toggle-left"><i class="icon-reorder"></i></button>
+          <button class="btn navbar-btn active" data-toggle="button" ng-click="leftPanelIsOpen = !leftPanelIsOpen">
+            <i class="icon-reorder"></i>
+          </button>
         </div>
         <div class="nav navbar-nav pull-right">
           <button class="btn navbar-btn navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -218,7 +221,7 @@
                    app-search-result="searchResult">
           </form>
           <div class="nav navbar-nav pull-right">
-            <button class="btn navbar-btn" data-toggle="button" id="toggle-globe"><i class="icon-globe"></i></button>
+            <button class="btn navbar-btn" data-toggle="button" ng-click="globeIsOpen = !globeIsOpen"><i class="icon-globe"></i></button>
           </div>
         </div>
       </div>
@@ -267,13 +270,6 @@
     </div>
 
     <script>
-
-      $('#toggle-left').click(function(e) {
-        $('body').toggleClass('left-open');
-      });
-      $('#toggle-globe').click(function(e) {
-        $('body').toggleClass('globe-open');
-      });
 
       $('.content, .map, .globe').on('transitionend webkitTransitionEnd', function() {
         // FIXME this should go elsewhere
