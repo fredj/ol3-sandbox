@@ -56,8 +56,8 @@
           header: '<strong>geonames:</strong>',
           valueKey: 'name',
           template: function(context) {
-            return '<div>' + context.name + '<small class="pull-right">(' +
-              context.countryName + ')</small></div>';
+            return '<div>' + context.name + ' - ' + context.countryName +
+              '<small class="pull-right">(' + context.fcodeName + ')</small></div>';
           },
           remote: {
             url: 'http://api.geonames.org/searchJSON?username=fredj&q=%QUERY',
