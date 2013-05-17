@@ -134,7 +134,7 @@ body.globe-open .map, body.globe-open .globe {
     transition: all 0.3s ease-in-out;
 }
 
-#geosearch  {
+.app-search  {
     width: 380px;
 }
 
