@@ -12,6 +12,7 @@
     <script src="lib/ol.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="lib/typeahead.js/typeahead.min.js"></script>
+    <script src="lib/fastclick.js"></script>
     <script src="lib/bootstrap.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
     <script src="controller.js"></script>
@@ -287,6 +288,9 @@
     </div>
 
     <script>
+      $(window).load(function() {
+        FastClick.attach(document.body);
+      });
 
       $('.content, .map, .globe').on('transitionend webkitTransitionEnd', function() {
         // FIXME this should go elsewhere
