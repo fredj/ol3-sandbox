@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+}
+
+.map {
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    bottom: 0;
+    background-image: url(wavegrid.png);
+}
+
+.map .map-control {
+    position: absolute;
+    z-index: 900;
+}
+
+.ol-zoom {
+    right: 15px;
+    bottom: 15px;
+}
+
+.ol-location {
+    right: 15px;
+    top: 15px;
+}
+.ol-compass {
+    right: 55px;
+    top: 15px;
+}
+
+
+
