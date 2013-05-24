@@ -38,7 +38,7 @@
     </div>
     <div class="map" id="map">
       <div class="map-control ol-layers">
-        <button class="btn btn-primary  dropdown-toggle" data-toggle="dropdown"><i class="icon-reorder"></i></button>
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="icon-reorder"></i></button>
         <ul class="dropdown-menu pull-right">
           <li><a href="#"><i class="icon-check"> Standard</i></a></li>
           <li><a href="#"><i class="icon-check-empty"> Cycle Map</i></a></li>
@@ -80,13 +80,30 @@
       var geolocation = new ol.Geolocation({
         tracking: false
       });
-      geolocation.on('position_changed', function() {
-        view.setCenter(geolocation.getPosition());
+
+      geolocation.on('tracking_changed', function() {
+        // FIXME: check errors
+        if (this.getTracking()) {
+          $('.ol-location').addClass('tracking');
+        } else {
+          $('.ol-location').removeClass('tracking');
+        }
       });
+      geolocation.on('position_changed', function() {
+        map.addPreRenderFunction(ol.animation.pan({
+          duration: 1000,
+          source: view.getCenter()
+        }));
+        view.setCenter(geolocation.getPosition());
+        // FIXME: zoom if needed
+        view.once('center_changed', function() {
+          geolocation.setTracking(false);
+        });
+      });
+
       geolocation.bindTo('projection', view);
       $('.ol-location').click(function() {
         geolocation.setTracking(!geolocation.getTracking());
-        $(this).toggleClass('tracking'); // FIXME
       });
 
       $('#search').typeahead([{
