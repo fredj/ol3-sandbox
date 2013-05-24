@@ -119,13 +119,10 @@
           }
         }
       }]).on('typeahead:selected', function(event, datum) {
-          $(this).blur();
+        var center = ol.projection.transform([datum.lng, datum.lat], 'EPSG:4326', view.getProjection());
+        view.setCenter(center);
+        $(this).blur();
       });
-      // $(map.getTarget()).find('[data-ol-control]').each(function() {
-      //   $(this).click(function() {
-      //     console.log($(this).data('ol-control'));
-      //   });
-      // });
     </script>
   </body>
 </html>
