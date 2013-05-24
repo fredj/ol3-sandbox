@@ -21,13 +21,17 @@ html, body {
 }
 
 .ol-location {
+    left: 15px;
+    bottom: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.ol-location.tracking {
+    background-color: #4cae4c;
+    border-color: #449d44;
+}
+
+.ol-layers {
     right: 15px;
     top: 15px;
 }
-.ol-compass {
-    right: 55px;
-    top: 15px;
-}
-
-
-

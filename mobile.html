@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ol3 mobile app</title>
+    <title>OSM mobile</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
 
     <link href="lib/bootstrap.css" rel="stylesheet" media="screen">
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <link href="typeahead.css" rel="stylesheet" media="screen">
     <link href="mobile.css" rel="stylesheet" media="screen">
   </head>
   <body>
     <div class="navbar navbar-fixed-top">
       <form class="navbar-form pull-left">
-        <input type="text" style="width: 200px;">
-        <button class="btn btn-default"><i class="icon-search"></i></button>
+        <input id="search" type="text" placeholder="Search" style="width: 300px;">
+        <!-- <button class="btn navbar-btn btn-default"><i class="icon-search"></i></button> -->
       </form>
 
-      <form class="navbar-form pull-right">
-        <div class="btn-group">
-          <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-ellipsis-vertical"></i></button>
-          <ul class="dropdown-menu pull-right">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Action</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-submenu pull-left"><a href="#">Share this map</a>
-              <ul  class="dropdown-menu">
-                <li><a href="#"><i class="icon-twitter"></i> Twitter</a></li>
-                <li><a href="#"><i class="icon-facebook-sign"></i> facebook</a></li>
-                <li><a href="#"><i class="icon-pinterest"></i> Pinterest</a></li>
-                <li><a href="#"><i class="icon-google-plus-sign"></i> Google+</a></li>
-              </ul>
-          </ul>
-        </div>
-      </form>
+      <!-- <form class="navbar-form pull-right"> -->
+      <!--   <div class="btn-group"> -->
+      <!--     <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-ellipsis-vertical"></i></button> -->
+      <!--     <ul class="dropdown-menu pull-right"> -->
+      <!--       <li><a href="#">Action</a></li> -->
+      <!--       <li><a href="#">Action</a></li> -->
+      <!--       <li class="divider"></li> -->
+      <!--       <li class="dropdown-submenu pull-left"><a href="#">Share this map</a> -->
+      <!--         <ul  class="dropdown-menu"> -->
+      <!--           <li><a href="#"><i class="icon-twitter"></i> Twitter</a></li> -->
+      <!--           <li><a href="#"><i class="icon-facebook-sign"></i> facebook</a></li> -->
+      <!--           <li><a href="#"><i class="icon-pinterest"></i> Pinterest</a></li> -->
+      <!--           <li><a href="#"><i class="icon-google-plus-sign"></i> Google+</a></li> -->
+      <!--         </ul> -->
+      <!--     </ul> -->
+      <!--   </div> -->
+      <!-- </form> -->
 
     </div>
     <div class="map" id="map">
-      <button class="btn btn-default map-control ol-compass"><i class="icon-chevron-sign-up"></i></button>
+      <div class="map-control ol-layers">
+        <button class="btn btn-primary  dropdown-toggle" data-toggle="dropdown"><i class="icon-reorder"></i></button>
+        <ul class="dropdown-menu pull-right">
+          <li><a href="#"><i class="icon-check"> Standard</i></a></li>
+          <li><a href="#"><i class="icon-check-empty"> Cycle Map</i></a></li>
+          <li><a href="#"><i class="icon-check-empty"> Transport Map</i></a></li>
+          <li><a href="#"><i class="icon-check-empty"> MapQuest Open</i></a></li>
+        </ul>
+      </div>
       <button class="btn btn-primary map-control ol-location" data-ol-control="geolocation"><i class="icon-location-arrow"></i></button>
       <div class="btn-group-vertical map-control ol-zoom">
         <button class="btn btn-primary" data-ol-control="zoom-in"><i class="icon-plus"></i></button>
@@ -48,6 +57,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="lib/fastclick.js"></script>
     <script src="lib/bootstrap.js"></script>
+    <script src="lib/typeahead.js/typeahead.min.js"></script>
     <script>
       $(window).load(function() {
         FastClick.attach(document.body);
@@ -57,14 +67,7 @@
         target: document.getElementById('map'),
         layers: [
           new ol.layer.TileLayer({
-            source: new ol.source.Stamen({
-              layer: 'watercolor'
-            })
-          }),
-          new ol.layer.TileLayer({
-            source: new ol.source.Stamen({
-              layer: 'terrain-labels'
-            })
+            source: new ol.source.OSM()
           })
         ],
         view: new ol.View2D({
@@ -81,16 +84,31 @@
         view.setCenter(geolocation.getPosition());
       });
       geolocation.bindTo('projection', view);
-
-      view.on('rotation_changed', function() {
-          $('.ol-compass').css('-webkit-transform', 'rotate(' + view.getRotation() + 'rad)');
-      })
-
-      $(map.getTarget()).find('[data-ol-control]').each(function() {
-        $(this).click(function() {
-          console.log($(this).data('ol-control'));
-        });
+      $('.ol-location').click(function() {
+        geolocation.setTracking(!geolocation.getTracking());
+        $(this).toggleClass('tracking'); // FIXME
       });
+
+      $('#search').typeahead([{
+        name: 'geonames',
+        valueKey: 'name',
+        template: function(context) {
+          return '<div>' + context.name + ' - ' + context.countryName + '</div>';
+        },
+        remote: {
+          url: 'http://api.geonames.org/searchJSON?username=fredj&q=%QUERY',
+          filter: function(response) {
+            return response.geonames;
+          }
+        }
+      }]).on('typeahead:selected', function(event, datum) {
+          $(this).blur();
+      });
+      // $(map.getTarget()).find('[data-ol-control]').each(function() {
+      //   $(this).click(function() {
+      //     console.log($(this).data('ol-control'));
+      //   });
+      // });
     </script>
   </body>
 </html>
