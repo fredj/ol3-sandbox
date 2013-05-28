@@ -65,6 +65,11 @@
 
       var map = new ol.Map({
         target: document.getElementById('map'),
+        controls: ol.control.defaults({
+          attribution: false,
+          logo: false,
+          zoom: false
+        }),
         layers: [
           new ol.layer.TileLayer({
             source: new ol.source.OSM()
@@ -123,6 +128,11 @@
         view.setCenter(center);
         $(this).blur();
       });
+
+      $(map.getTarget()).find('[data-ol-control]').each(function() {
+        var control = $(this).data('ol-control');
+      });
+
     </script>
   </body>
 </html>
