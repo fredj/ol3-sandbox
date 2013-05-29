@@ -12,10 +12,10 @@
   </head>
   <body>
     <div class="navbar navbar-fixed-top">
-      <form class="navbar-form pull-left">
-        <input id="search" type="text" placeholder="Search" style="width: 300px;">
-        <!-- <button class="btn navbar-btn btn-default"><i class="icon-search"></i></button> -->
-      </form>
+      <div class="navbar-form pull-left input-group">
+        <span class="input-group-addon"><i class="icon-search"></i></span>
+        <input id="search" type="text" placeholder="Search">
+      </div>
 
       <!-- <form class="navbar-form pull-right"> -->
       <!--   <div class="btn-group"> -->
@@ -111,23 +111,23 @@
         geolocation.setTracking(!geolocation.getTracking());
       });
 
-      $('#search').typeahead([{
-        name: 'geonames',
-        valueKey: 'name',
-        template: function(context) {
-          return '<div>' + context.name + ' - ' + context.countryName + '</div>';
-        },
-        remote: {
-          url: 'http://api.geonames.org/searchJSON?username=fredj&q=%QUERY',
-          filter: function(response) {
-            return response.geonames;
-          }
-        }
-      }]).on('typeahead:selected', function(event, datum) {
-        var center = ol.projection.transform([datum.lng, datum.lat], 'EPSG:4326', view.getProjection());
-        view.setCenter(center);
-        $(this).blur();
-      });
+      // $('#search').typeahead([{
+      //   name: 'geonames',
+      //   valueKey: 'name',
+      //   template: function(context) {
+      //     return '<div>' + context.name + ' - ' + context.countryName + '</div>';
+      //   },
+      //   remote: {
+      //     url: 'http://api.geonames.org/searchJSON?username=fredj&q=%QUERY',
+      //     filter: function(response) {
+      //       return response.geonames;
+      //     }
+      //   }
+      // }]).on('typeahead:selected', function(event, datum) {
+      //   var center = ol.projection.transform([datum.lng, datum.lat], 'EPSG:4326', view.getProjection());
+      //   view.setCenter(center);
+      //   $(this).blur();
+      // });
 
       $(map.getTarget()).find('[data-ol-control]').each(function() {
         var control = $(this).data('ol-control');
