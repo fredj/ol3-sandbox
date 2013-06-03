@@ -41,8 +41,11 @@ body {
     width: 320px;
 }
 
-.pulldown .content .group {
+.pulldown .content .accordion-group {
+    border: none;
     border-bottom: 1px solid #afafaf;
+    margin-bottom: 0;
+    border-radius: 0;
 }
 
 .pulldown .content .accordion-toggle, .pulldown .content .accordion-toggle.collapsed:hover {
@@ -86,6 +89,10 @@ body {
     border-top: none;
 }
 
+.layertree {
+    margin: 0;
+}
+
 .layertree .list-group-item {
     padding-right: 10px;
     background-color: #fff;
@@ -99,7 +106,17 @@ body {
 }
 
 
+
 .legend .modal-body {
     max-height: 512px;
     overflow: auto;
+}
+.legend .bodsearch_header {
+    background-color: #eee;
+}
+.legend .bod-title, .legend .office-provider {
+    color: red;
+}
+.legend .office-provider {
+    font-style: italic;
 }
